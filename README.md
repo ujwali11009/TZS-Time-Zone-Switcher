@@ -61,6 +61,4 @@ This creates `dist/timezone-shift-<version>.zip`. See [STORE_LISTING.md](STORE_L
 
 Issues and pull requests are welcome. Please test changes with **Load unpacked** before opening a PR.
 
-## License
 
-[MIT](LICENSE)
