@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "TimeZone Shift",
+  "short_name": "TZ Shift",
+  "version": "1.0.0",
+  "description": "Make any website show times in another time zone, with a floating world clock and a quick time zone converter.",
+  "minimum_chrome_version": "102",
+  "permissions": ["debugger", "storage", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TimeZone Shift",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["zones.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

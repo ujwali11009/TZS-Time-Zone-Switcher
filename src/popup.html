@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TimeZone Shift</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="icons/icon32.png" alt="" width="18" height="18"><h1>TimeZone Shift</h1></div>
+    <div class="clocks">
+      <div class="clock target"><div class="lbl" id="cTargetLbl"></div><div class="t" id="cTarget">--</div><div class="d" id="cTargetD"></div></div>
+      <div class="clock"><div class="lbl" id="cHomeLbl"></div><div class="t" id="cHome">--</div><div class="d" id="cHomeD"></div></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>This site</h2>
+    <div class="site" id="siteName">—</div>
+    <div class="picker" id="sitePicker"></div>
+    <div class="toggle">
+      <div class="txt"><b id="siteToggleLbl">Show this site in another time zone</b><span id="siteToggleSub">The page reloads when you switch.</span></div>
+      <label class="switch"><input type="checkbox" id="siteToggle"><span class="slider"></span></label>
+    </div>
+    <p class="note" id="siteNote" hidden>While it's on, Chrome shows a bar saying TimeZone Shift "started debugging this browser". That's how the time zone override works, so leave it open. Clicking Cancel switches the site off.</p>
+  </section>
+
+  <section>
+    <h2>Converter</h2>
+    <label class="field">From</label>
+    <div class="picker" id="fromPicker"></div>
+    <div class="swaprow"><button id="swap" title="Swap from and to">⇅ Swap</button><button id="nowBtn" title="Use the current time">Now</button></div>
+    <label class="field">To</label>
+    <div class="picker" id="toPicker"></div>
+    <label class="field" style="margin-top:8px">Date and time (in the From zone)</label>
+    <input type="datetime-local" id="when">
+    <div class="result">
+      <div><div class="big" id="out">—</div><div class="sub" id="outSub"></div></div>
+      <button id="copy">Copy</button>
+    </div>
+  </section>
+
+  <details>
+    <summary>Settings</summary>
+    <section>
+      <div class="toggle first">
+        <div class="txt"><b>Detect my time zone</b><span id="detected"></span></div>
+        <label class="switch"><input type="checkbox" id="autoHome"><span class="slider"></span></label>
+      </div>
+      <div id="homeWrap" hidden>
+        <label class="field">My time zone</label>
+        <div class="picker" id="homePicker"></div>
+      </div>
+      <div class="toggle">
+        <div class="txt"><b>Floating clock</b><span>On switched sites. Drag it to move it.</span></div>
+        <label class="switch"><input type="checkbox" id="badge"><span class="slider"></span></label>
+      </div>
+      <div class="toggle">
+        <div class="txt"><b>24-hour clock</b><span>Show 14:30 instead of 2:30 PM</span></div>
+        <label class="switch"><input type="checkbox" id="hour24"><span class="slider"></span></label>
+      </div>
+      <label class="field" style="margin-top:12px">Switched sites</label>
+      <ul id="siteList" class="sitelist"></ul>
+    </section>
+  </details>
+
+  <script src="zones.js"></script>
+  <script src="picker.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
